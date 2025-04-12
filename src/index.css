@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: "DM Sans", sans-serif;
+}
+
+@layer base {
+  :root {
+    --background: 264 100% 98%;
+    --foreground: 240 10% 3.9%;
+    --backgroundelem: 0 0% 100%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 262 83% 58%;
+    --primary-foreground: 0 0% 98%;
+
+    --opens: 200 100% 90%;
+    --opens-foreground: 200 70% 44%;
+
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --accent: 261 73% 86%;
+    --accent-foreground: 240 5.9% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 262 83% 58%;
+
+    --radius: 0.5rem;
+
+    --sidebar: 262 83% 15%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-accent: 262 83% 20%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 262 83% 10%;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --backgroundelem: 240 10% 3.9%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 262 83% 58%;
+    --primary-foreground: 0 0% 98%;
+
+    --opens: 200 100% 90%;
+    --opens-foreground: 200 70% 44%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 262 83% 20%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 262 83% 58%;
+
+    --sidebar: 262 83% 10%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-accent: 262 83% 15%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 262 83% 5%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+@layer utilities {
+  .glass-effect {
+    background-color: hsla(258, 84%, 75%, 0.2);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+  }
+}
+
+.wavy-bg {
+  background-image: url("/wavy-bg.jpg");
+  background-size: cover;
+  background-position: center;
+}
