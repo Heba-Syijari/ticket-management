@@ -1,12 +1,11 @@
 import { UsersRound, FileText, Ticket, Settings, LogOut, LayoutGrid } from "lucide-react"
 import logoImage from '../assets/Logo.png';
 import { cn } from "../lib/utils"
-import { useTheme } from "./theme-provider"
+import { useTheme } from "../context/theme-provider"
 import { Button } from "./ui/button"
 import { Moon, Sun } from "lucide-react"
 
 export default function Sidebar() {
-  // const { activeSection, setActiveSection } = useTickets()
   const { theme, setTheme } = useTheme()
 
   const navItems = [

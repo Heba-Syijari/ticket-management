@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { ThemeProvider } from "./components/theme-provider"
+import { ThemeProvider } from "./context/theme-provider"
 import { TicketProvider } from "./context/ticket-context"
 import Sidebar from "./components/sidebar"
 import TicketList from "./components/ticket-list"
