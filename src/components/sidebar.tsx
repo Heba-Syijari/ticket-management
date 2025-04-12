@@ -1,5 +1,11 @@
 import { UsersRound, FileText, Ticket, Settings, LogOut, LayoutGrid } from "lucide-react"
 import logoImage from '../assets/Logo.png';
+import squaresImage from '../assets/squares-2x2.svg';
+import ticketImage from '../assets/ticket.svg';
+import vectorImage from '../assets/Vector.svg';
+import documentImage from '../assets/document-chart-bar.svg';
+import settingImage from '../assets/Setting.svg';
+
 import { cn } from "../lib/utils"
 import { useTheme } from "../context/theme-provider"
 import { Button } from "./ui/button"
@@ -9,11 +15,11 @@ export default function Sidebar() {
   const { theme, setTheme } = useTheme()
 
   const navItems = [
-    { icon: LayoutGrid, label: "Dashboard" },
-    { icon: Ticket, label: "Tickets", active: true },
-    { icon: UsersRound, label: "Users" },
-    { icon: FileText, label: "Products" },
-    { icon: Settings, label: "Settings" },
+    { img: squaresImage, alt: "Dashboard" },
+    { img: ticketImage, alt: "Tickets", active: true },
+    { img: vectorImage, alt: "Users" },
+    { img: documentImage, alt: "Products" },
+    { img: settingImage, alt: "Settings" },
   ]
 
   return (
@@ -28,9 +34,10 @@ export default function Sidebar() {
               "w-12 h-12 flex items-center justify-center text-sidebar-foreground hover:text-sidebar-foreground hover:bg-sidebar-accent rounded-lg transition-colors",
               item.active && "text-sidebar-foreground bg-sidebar-accent",
             )}
-            aria-label={item.label}
+            aria-label={item.alt}
           >
-            <item.icon size={20} fill="hsla(0, 0%, 100%, 0.9)" />
+            {/* <item.icon size={20} fill="hsla(0, 0%, 100%, 0.9)" /> */}
+            <img src={item.img} alt={item.alt} className="w-6 h-6" />
           </button>
         ))}
       </div>

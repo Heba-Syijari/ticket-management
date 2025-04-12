@@ -10,6 +10,9 @@ import { formatDistanceToNow } from "date-fns"
 import { Skeleton } from "./ui/skeleton"
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
 import { fetchConversation, sendMessage } from "../lib/api"
+import phoneImage from '../assets/phone.svg';
+import envelopeImage from '../assets/envelope.svg';
+import localImage from '../assets/local.svg';
 
 interface ChatPanelProps {
   onClose: () => void
@@ -100,40 +103,41 @@ export default function ChatPanel({ onClose }: ChatPanelProps) {
           </Avatar>
 
           <div >
-            <h3 className="font-medium ">{selectedTicket.customer_name}</h3>
+            <h3 className="font-medium text-black">{selectedTicket.customer_name}</h3>
             <div className="flex items-center gap-4 mt-1">
-              <button className="flex items-center justify-center h-8 w-8 bg-white/70 rounded-full">
-                <Phone className="h-5 w-5 text-muted-foreground" fill="gray" />
+              <button className="flex items-center justify-center h-8 w-8 bg-white/80 rounded-full">
+                <img src={phoneImage} alt="phone" className="w-4 h-4" />
               </button>
-              <button className="flex items-center justify-center h-8 w-8 bg-white/70 rounded-full">
-                <Mail className="h-5 w-5 text-muted-foreground" fill="gray" />
+              <button className="flex items-center justify-center h-8 w-8 bg-white/80 rounded-full">
+                <img src={envelopeImage} alt="envelope" className="w-4 h-4" />
               </button>
-              <button className="flex items-center justify-center h-8 w-8 bg-white/70 rounded-full">
-                <MapPin className="h-5 w-5 text-muted-foreground" fill="gray" />
+              <button className="flex items-center justify-center h-8 w-8 bg-white/80 rounded-full">
+                <img src={localImage} alt="local" className="w-4 h-4" />
               </button>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Ticket subject */}
-      <div className="p-4 border-b border-border relative isolate">
-        <div className="absolute inset-0 glass-effect -z-10 shadow-inner" />
-        <div className="relative z-10">
-          <div className="flex justify-between ">
-            <h4 className="font-medium">Ticket Subject</h4>
-            <span className="text-xs text-muted-foreground">
-              {formatDistanceToNow(new Date(selectedTicket.timestamp), { addSuffix: true })}
-            </span>
-          </div>
-          <p className="text-sm text-muted-foreground">{selectedTicket.subject}</p>
-        </div>
-      </div>
 
-      <div className="flex-1 overflow-auto p-4 space-y-4">
+
+      <div className="flex-1 overflow-auto">
+        {/* Ticket subject */}
+        <div className="p-4 border-b border-border sticky top-0 w-full  isolate z-50">
+          <div className="absolute inset-0 glass-effect -z-10 shadow-inner" />
+          <div className="relative z-10">
+            <div className="flex justify-between ">
+              <h4 className="font-medium">Ticket Subject</h4>
+              <span className="text-xs text-muted-foreground">
+                {formatDistanceToNow(new Date(selectedTicket.timestamp), { addSuffix: true })}
+              </span>
+            </div>
+            <p className="text-sm text-muted-foreground">{selectedTicket.subject}</p>
+          </div>
+        </div>
         {loadingConversation ? (
           // Loading state
-          <div className="space-y-4">
+          <div className="space-y-4 p-4">
             {Array.from({ length: 3 }).map((_, index) => (
               <div key={index} className={`flex ${index % 2 === 0 ? "justify-start" : "justify-end"}`}>
                 {index % 2 === 0 && <Skeleton className="h-8 w-8 rounded-full mr-2" />}
@@ -147,7 +151,7 @@ export default function ChatPanel({ onClose }: ChatPanelProps) {
         ) : (
           // Conversation
           Object.entries(groupedMessages).map(([date, messages]) => (
-            <div key={date} className="space-y-4">
+            <div key={date} className="space-y-4 p-4">
               <div className="flex items-center justify-center">
                 <div className="text-xs text-muted-foreground  px-2 py-1 rounded-full">{date}</div>
               </div>

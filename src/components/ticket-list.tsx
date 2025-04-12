@@ -95,11 +95,11 @@ export default function TicketList({ onChatToggle, isChatVisible }: TicketListPr
     <div className="flex-1 flex h-full overflow-hidden">
       {/* Status sidebar */}
       <div className="w-fit border-r border-border bg-backgroundelem">
-        <div className="p-4">
+        <div className="py-4">
 
           <div className="flex flex-col gap-4">
             <button
-              className={`flex items-center gap-2 py-2 rounded-md text-sm font-medium ${activeStatus === "open" ? "shadow-xl" : "text-muted-foreground"
+              className={`flex items-center gap-2 py-4 px-6 text-sm font-medium ${activeStatus === "open" ? "shadow-xl border-r-4 border-primary" : "text-muted-foreground"
                 }`}
               onClick={() => {
                 setActiveStatus("open")
@@ -111,7 +111,7 @@ export default function TicketList({ onChatToggle, isChatVisible }: TicketListPr
             </button>
 
             <button
-              className={`flex items-center gap-2 py-2 rounded-md text-sm font-medium ${activeStatus === "pending" ? "shadow-xl" : "text-muted-foreground"
+              className={`flex items-center gap-2 py-4 px-6 text-sm font-medium ${activeStatus === "pending" ? "shadow-xl border-r-4 border-primary" : "text-muted-foreground"
                 }`}
               onClick={() => {
                 setActiveStatus("pending")
@@ -123,7 +123,7 @@ export default function TicketList({ onChatToggle, isChatVisible }: TicketListPr
             </button>
 
             <button
-              className={`flex items-center gap-2  py-2 rounded-md text-sm font-medium ${activeStatus === "closed" ? "shadow-xl" : "text-muted-foreground"
+              className={`flex items-center gap-2  py-4 px-6 text-sm font-medium ${activeStatus === "closed" ? "shadow-xl border-r-4 border-primary" : "text-muted-foreground"
                 }`}
               onClick={() => {
                 setActiveStatus("closed")
@@ -173,7 +173,7 @@ export default function TicketList({ onChatToggle, isChatVisible }: TicketListPr
             </div>
           ) : (
             // Tickets table
-            <table className="w-full">
+            <table className="w-full border-separate border-spacing-y-2">
               <thead>
                 <tr className="text-xs text-muted-foreground border-b border-border">
                   <th className="font-medium text-left pl-4 py-3 w-1/4">Name</th>
@@ -182,7 +182,7 @@ export default function TicketList({ onChatToggle, isChatVisible }: TicketListPr
                   <th className="font-medium text-left py-3 pr-4 w-1/6">State</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody >
                 {paginatedTickets.map((ticket) => (
                   <tr
                     key={ticket.id}
