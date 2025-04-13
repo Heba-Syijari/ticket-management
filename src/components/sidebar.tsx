@@ -1,4 +1,4 @@
-import { UsersRound, FileText, Ticket, Settings, LogOut, LayoutGrid } from "lucide-react"
+import { LogOut, Moon, Sun } from "lucide-react"
 import logoImage from '../assets/Logo.png';
 import squaresImage from '../assets/squares-2x2.svg';
 import ticketImage from '../assets/ticket.svg';
@@ -9,7 +9,6 @@ import settingImage from '../assets/Setting.svg';
 import { cn } from "../lib/utils"
 import { useTheme } from "../context/theme-provider"
 import { Button } from "./ui/button"
-import { Moon, Sun } from "lucide-react"
 
 export default function Sidebar() {
   const { theme, setTheme } = useTheme()
